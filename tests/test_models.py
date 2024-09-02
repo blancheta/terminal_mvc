@@ -1,5 +1,3 @@
-from sqlalchemy.util import merge_lists_w_ordering
-
 from controllers import MainController
 from models import Customer, Contract
 
@@ -17,7 +15,7 @@ class TestContractModels:
 
     def test_create_contract_record(self, new_customer):
         contract_obj = MainController.create_contract_record({
-            "name": "contact #1",
+            "name": "contract #1",
             "customer": new_customer
         })
 

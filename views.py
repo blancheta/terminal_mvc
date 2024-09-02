@@ -1,3 +1,15 @@
+def get_client_details():
+
+    details = {}
+
+    for info in ["email_address"]:
+        details[info] = input(f"Enter a value for {info}")
+
+    return details
+
+
+
+
 def get_contract_details():
 
     details = {}

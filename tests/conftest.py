@@ -6,6 +6,10 @@ from sqlalchemy.orm import Session
 
 from models import Base, Customer, Contract
 
+@pytest.fixture(autouse=True)
+def mock_environment_variables(monkeypatch):
+	monkeypatch.setenv("SQLALCHEMY_URL", "sqlite:///test/test.db")
+
 
 @pytest.fixture
 def engine(mocker):
