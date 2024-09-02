@@ -1,14 +1,26 @@
+from sqlalchemy.util import merge_lists_w_ordering
+
+from controllers import MainController
 from models import Customer, Contract
 
 
 class TestContractModels:
 
-    def test_create_customer_record(self, new_customer):
-        assert isinstance(new_customer, Customer)
-        assert getattr(new_customer, "id")
-        assert new_customer.email_address == "john@doe.fr"
+    def test_create_customer_record(self):
 
-    def test_create_contract_record(self, new_contract):
-        assert isinstance(new_contract, Contract)
-        assert getattr(new_contract, "id")
-        assert new_contract.name == "contract #1"
+        customer_obj = MainController.create_customer_record({
+            "email_address": "john@doe.fr"
+        })
+        assert isinstance(customer_obj, Customer)
+        assert getattr(customer_obj, "id")
+        assert customer_obj.email_address == "john@doe.fr"
+
+    def test_create_contract_record(self, new_customer):
+        contract_obj = MainController.create_contract_record({
+            "name": "john",
+            "customer": new_customer
+        })
+
+        assert isinstance(contract_obj, Contract)
+        assert getattr(contract_obj, "id")
+        assert contract_obj.name == "contract #1"

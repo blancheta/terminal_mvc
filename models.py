@@ -28,9 +28,6 @@ class Customer(Base):
     __tablename__ = "customer"
     id: Mapped[int] = mapped_column(primary_key=True)
     email_address: Mapped[str]
-    # contracts: Mapped[List["Contract"]] = relationship(
-    #     back_populates="customer"
-    # )
 
     def __repr__(self) -> str:
         return f"Customer(id={self.id!r}, email_address={self.email_address!r})"

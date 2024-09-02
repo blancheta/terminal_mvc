@@ -1,4 +1,4 @@
-from controller import MainController
+from controllers import MainController
 
 
 class TestContractController:
