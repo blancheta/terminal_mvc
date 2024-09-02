@@ -17,7 +17,7 @@ class TestContractModels:
 
     def test_create_contract_record(self, new_customer):
         contract_obj = MainController.create_contract_record({
-            "name": "john",
+            "name": "contact #1",
             "customer": new_customer
         })
 
